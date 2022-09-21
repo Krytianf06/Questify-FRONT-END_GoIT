@@ -1,0 +1,19 @@
+.navigation{
+  display: flex;
+  background-color: #242A37;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.logo__wrapper{
+ margin-left: 20px;
+}
+.logo{
+   color: rgba(0, 215, 255, 1);
+  font-size: 21px;
+  letter-spacing: 2%;
+  font-weight: 700;
+  text-decoration: none;
+}

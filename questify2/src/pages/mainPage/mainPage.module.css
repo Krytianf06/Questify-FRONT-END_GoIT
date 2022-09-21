@@ -1,0 +1,144 @@
+a{
+  text-decoration: none;
+}
+
+
+
+.cards__wrapper{
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  color: #282828;
+}
+.cards__wrapper p{
+  text-transform: uppercase;
+}
+
+
+
+
+
+/*.navigation__wrapper {
+  height: 60px;
+  width: 100%;
+  background-color: rgba(36, 42, 55, 1);
+  padding-top: 1px;
+}
+.navigation__list {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+.userName__info{
+    display: none;
+}
+.logo {
+  color: rgba(0, 215, 255, 1);
+  font-size: 21px;
+  letter-spacing: 2%;
+  font-weight: 700;
+  text-decoration: none;
+}
+.logout__button {
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+.logout__icon {
+  fill: rgba(62, 78, 108, 1);
+}
+.logout__icon:hover {
+  transform: rotate(180deg);
+  transform: scale(1.2);
+}
+.challenge__icon {
+  fill: rgba(36, 42, 55, 1);
+  margin-top: 4px;
+ 
+}
+.challenge__icon:hover {
+  transform: scale(1.2);
+  animation: rotation 500ms linear;
+}
+.icons__wrapper {
+  width: 160px;
+  display: flex;
+  justify-content: space-around;
+}
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 215, 255, 1);
+  border: none;
+}
+.circle:active {
+  filter: blur(4px);
+}
+.circle__letter {
+  width: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 17px;
+  background: #3e4e6c;
+  position: absolute;
+  top: -5px;
+  left: -35px;
+}
+
+.username__wrapper {
+  display: flex;
+  position: relative;
+}
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
+.cards__wrapper {
+  display: flex;
+  
+  justify-content: flex-start;
+}
+.cards__wrapper p {
+  color: black;
+  font-size: 15px;
+  letter-spacing: 2%;
+  font-weight: 300;
+}
+.plus_btn{
+    background-color: #FF851C ;
+    color:#ffffff;
+    position: fixed;
+    bottom: 40px;
+    right: 46px;
+    border-radius: 50%;
+    border:none;
+    font-size: 35px;
+    font-weight: 100;
+    width: 52px;
+    height: 52px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    cursor: pointer;
+    
+}
+.plus_btn:active{
+    filter: blur(4px);
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@media screen and (min-width:768px) {
+    
+}
+@media screen and (min-width:1200px) {
+    .navigation__wrapper{
+    height: 70px;
+
+}
+} */

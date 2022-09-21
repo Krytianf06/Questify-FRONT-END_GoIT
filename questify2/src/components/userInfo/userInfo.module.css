@@ -1,0 +1,89 @@
+.username__wrapper{
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.username__info{
+  display: none;
+  font-weight: 400;
+  size: 17px;
+  letter-spacing: 2%;
+  color: #7B8AA4;
+}
+
+.challenge__button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 215, 255, 1);
+  border: none;
+  margin-left: 10px;
+}
+.challenge__icon{
+  fill: rgba(36, 42, 55, 1);
+
+}
+
+.logout__button{
+   background-color: inherit;
+  outline: none;
+  border: none;
+  margin-left: 10px;
+  fill: #3E4E6C;
+}
+.logout__icon:hover {
+  transform: rotate(180deg);
+  transition: all .2s ease-in-out;
+  /* transform: scale(1.2); */
+}
+.logout__icon:active{
+  transform: rotate(180deg);
+}
+.challenge__icon {
+  fill: rgba(36, 42, 55, 1);
+  margin-top: 4px;
+ 
+}
+.challenge__icon:hover {
+  transform: scale(1.2);
+  animation: rotation 500ms linear;
+}
+.challenge__button:active {
+  filter: blur(4px);
+}
+.circle__letter {
+  width: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 17px;
+  background: #3e4e6c;
+}
+@media screen and (min-width:768px) {
+  .username__info{
+    display: block;
+  
+  }
+.username__questlog{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 45%;
+}
+.circle__letter{
+  margin-right: 10px;
+}
+}
+@media screen and (min-width:1200px) {
+  
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

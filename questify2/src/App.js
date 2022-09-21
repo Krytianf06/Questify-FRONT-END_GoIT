@@ -1,14 +1,33 @@
-import React from 'react';
-// import logo from './logo.svg';
-import  ToDoTask  from "./features/toDoTasks/ToDoTask";
-import './App.css';
 
-function App() {
+import React from "react";
+import { Route, Routes } from "react-router";
+//import './App.css';
+//import Landing from "./pages/LandingPage/Landing";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import MainPage from './pages/mainPage/mainPage';
+
+
+const App = () => {
   return (
-    <div className="App">
-        <ToDoTask />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <LandingPage />
+          </>
+        }
+      />
+      {/* <Route
+        path="/MainPage"
+        element={
+          <>
+            <MainPage />
+          </>
+        }
+      /> */}
+    </Routes>
   );
-}
+};
 
 export default App;
