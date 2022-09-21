@@ -18,14 +18,14 @@ const App = () => {
           </>
         }
       />
-      {/* <Route
+      <Route
         path="/MainPage"
         element={
           <>
             <MainPage />
           </>
         }
-      /> */}
+      />
     </Routes>
   );
 };
