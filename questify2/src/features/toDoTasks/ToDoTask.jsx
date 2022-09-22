@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toDoReducer } from '../../features/toDoTasks/ToDoSlice';
+import { toDoReducer } from "../../features/toDoTasks/ToDoSlice";
 import { nanoid } from "nanoid";
+import styles from "./ToDoTask.module.css";
 
 // import * as React from "react";
 import dayjs, { Dayjs } from "dayjs";
@@ -12,56 +13,57 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
-
-
-
 const ToDoTask = () => {
-   const dispatch = useDispatch();
-   
-   const inputRef = useRef();
-   const formId = useRef(nanoid());
-   const titleId = useRef(nanoid());
+  const dispatch = useDispatch();
 
-   const [formValues, setFormValues] = useState({
-     title: "",
-     difficulty: "",
-     category: "",
-     type: "",
-     date: "",
-   });
+  const inputRef = useRef();
+  const formId = useRef(nanoid());
+  const titleId = useRef(nanoid());
 
-   const handleSubmit = (event) => {
-     event.preventDefault();
+  const [formValues, setFormValues] = useState({
+    title: "",
+    difficulty: "",
+    category: "",
+    type: "",
+    date: "",
+  });
 
-     const { title, difficulty, category, type, date } = formValues;
-     const newToDoTask = { id: nanoid(), title: title, difficulty: difficulty, category: category, type: 'quest', date: date };
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-     dispatch(toDoReducer.actions.addToDoCard(newToDoTask));
-   };
+    const { title, difficulty, category, type, date } = formValues;
+    const newToDoTask = {
+      id: nanoid(),
+      title: title,
+      difficulty: difficulty,
+      category: category,
+      type: "quest",
+      date: date,
+    };
 
-   const handleInputValueChange = (event) => {
-     setFormValues((prevState) => ({
-       ...prevState,
-       [event.target.name]: event.target.value,
-     }));
-   };
-   
-    
-      useEffect(() => {
-        inputRef.current.focus();
-      }, []);
-    
-    
-    const [value, setValue] = React.useState(dayjs());
+    dispatch(toDoReducer.actions.addToDoCard(newToDoTask));
+  };
 
+  const handleInputValueChange = (event) => {
+    setFormValues((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const [value, setValue] = React.useState(dayjs());
 
   return (
-    <li>
+    <li className={styles.todo__item}>
       <form onSubmit={handleSubmit} id={formId.current}>
         <div className="">
           <div className="">
             <select
-              className="difficultyPicker"
+              className={styles.difficulty__bar}
               name="difficulty"
               value={formValues.difficulty}
               onChange={handleInputValueChange}
@@ -81,16 +83,18 @@ const ToDoTask = () => {
               onChange={handleInputValueChange}
             />
           </div> */}
+          <div className={styles.input__placeholder}>
+            <p>create new quest</p>
+          </div>
 
           <div>
             <input
               ref={inputRef}
               id={titleId.current}
               name="title"
-              placeholder="Enter your task"
               value={formValues.title}
               onChange={handleInputValueChange}
-              className=""
+              className={styles.input__field}
             />
           </div>
 
@@ -130,7 +134,7 @@ const ToDoTask = () => {
           </button> */}
         </div>
 
-        <button type="submit" className="">
+        <button type="submit" className={styles.submit__button}>
           START
         </button>
       </form>

@@ -22,9 +22,11 @@ import  ToDoTask  from '../../features/toDoTasks/ToDoTask'
       <div className={styles.cards__wrapper}>
         <p>Today</p>
       </div>
-      <div className="App">
+
+      <div>
         <ToDoTask />
       </div>
+      
       <div className={styles.cards__wrapper}>
         <p>Tomorrow</p>
       </div>
