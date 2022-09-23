@@ -4,7 +4,8 @@ import { useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import { Navigation } from "../../components/navigation/navigation";
 import { PlusBtn } from "../../components/plusBtn/plusBtn";
-import  ToDoTask  from '../../features/toDoTasks/ToDoTask'
+import ToDoForm from '../../features/toDoTasks/ToDoForm'
+import ToDoTask from "../../features/toDoTasks/ToDoTask";
 
  const MainPage = () => {
   const [open, setOpen] = useState(false);
@@ -24,9 +25,13 @@ import  ToDoTask  from '../../features/toDoTasks/ToDoTask'
       </div>
 
       <div>
+        <ToDoForm />
+      </div>
+
+      <div>
         <ToDoTask />
       </div>
-      
+
       <div className={styles.cards__wrapper}>
         <p>Tomorrow</p>
       </div>

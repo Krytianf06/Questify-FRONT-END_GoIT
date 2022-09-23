@@ -1,142 +1,180 @@
 .todo__item {
-width: 290px;
-height: 260px;
-list-style: none; 
-background: #FFFFFF;
-box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-border-radius: 10px;
-display: flex;
-justify-content: center;
+    width: 290px;
+    height: 260px;
+    list-style: none;
+    background: #FFFFFF;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
 }
 
-.input__placeholder{
-font-family: 'HelveticaNeueCyr';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 12px;
+.first__section {
+    margin-top: 19px;
+    display: flex;
+    justify-content: space-between;
 
-text-align: center;
-letter-spacing: 0.02em;
-text-transform: uppercase;
+}
 
-color: #B9C3C8;
+.input__placeholder {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 12px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #B9C3C8;
+    margin-top: 20px;
+}
+
+.second__section {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .input__field,
-.input__field:focus{
-  border: none;
-  border-bottom: 1px solid #00D7FF;
-  outline: none;
+.input__field:focus {
+    border: none;
+    border-bottom: 1px solid #00D7FF;
+    outline: none;
+    ont-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
 }
 
-.submit__button{
-font-family: 'HelveticaNeueCyr';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 14px;
-
-text-align: right;
-letter-spacing: 0.02em;
-
-color: #00D7FF;
-border: none;
-background-color: #FFFFFF;
+.third__section{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
 }
+.submit__button {
+    font-family: 'HelveticaNeueCyr';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+
+    text-align: right;
+    letter-spacing: 0.02em;
+
+    color: #00D7FF;
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.submit__button:hover,
+.destroy:hover {
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+}
+
+.destroy {
+    border: none;
+    background-color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+}
+
 
 @media screen and (min-width: 530px) {
-.todo__item {
-width: 205px;
-height: 199px;
-list-style: none; 
-background: #FFFFFF;
-box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-border-radius: 10px;
-}
+    .todo__item {
+        width: 205px;
+        height: 199px;
+        list-style: none;
+        background: #FFFFFF;
+        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+        border-radius: 10px;
+    }
 
-.input__placeholder{
-font-family: 'HelveticaNeueCyr';
-font-style: normal;
-font-weight: 700;
-font-size: 12px;
-line-height: 12px;
+    .input__placeholder {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
 
-text-align: center;
-letter-spacing: 0.02em;
-text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
 
-color: #B9C3C8;
-}
+        color: #B9C3C8;
+    }
 
-.input__field,
-.input__field:focus{
-  border: none;
-  border-bottom: 1px solid #00D7FF;
-  outline: none;
-}
+    .input__field,
+    .input__field:focus {
+        border: none;
+        border-bottom: 1px solid #00D7FF;
+        outline: none;
+    }
 
-.submit__button{
-font-family: 'HelveticaNeueCyr';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 14px;
+    .submit__button {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
 
-text-align: right;
-letter-spacing: 0.02em;
+        text-align: right;
+        letter-spacing: 0.02em;
 
-color: #00D7FF;
-border: none;
-background-color: #FFFFFF;
-}
+        color: #00D7FF;
+        border: none;
+        background-color: #FFFFFF;
+    }
 
 }
 
 @media screen and (min-width: 1024px) {
-.todo__item {
-width: 205px;
-height: 199px;
-list-style: none; 
-background: #FFFFFF;
-box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-border-radius: 10px;
-}
+    .todo__item {
+        width: 205px;
+        height: 199px;
+        list-style: none;
+        background: #FFFFFF;
+        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+        border-radius: 10px;
+    }
 
-.input__placeholder{
-font-family: 'HelveticaNeueCyr';
-font-style: normal;
-font-weight: 700;
-font-size: 12px;
-line-height: 12px;
+    .input__placeholder {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
 
-text-align: center;
-letter-spacing: 0.02em;
-text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
 
-color: #B9C3C8;
-}
+        color: #B9C3C8;
+    }
 
-.input__field,
-.input__field:focus{
-  border: none;
-  border-bottom: 1px solid #00D7FF;
-  outline: none;
-}
+    .input__field,
+    .input__field:focus {
+        border: none;
+        border-bottom: 1px solid #00D7FF;
+        outline: none;
+    }
 
-.submit__button{
-font-family: 'HelveticaNeueCyr';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 16px;
+    .submit__button {
+        font-family: 'HelveticaNeueCyr';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
 
-text-align: right;
-letter-spacing: 0.02em;
+        text-align: right;
+        letter-spacing: 0.02em;
 
-color: #00D7FF;
-border: none;
-background-color: #FFFFFF;
-}
+        color: #00D7FF;
+        border: none;
+        background-color: #FFFFFF;
+    }
 
 }
