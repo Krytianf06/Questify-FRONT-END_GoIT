@@ -18,7 +18,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 import ClearButton from "../../images/toDoTask/ClearButton";
-import ToDoStar from "../../images/toDoTask/ToDoStar";
+//import ToDoStar from "../../images/toDoTask/ToDoStar";
 
 const ToDoForm = (saveFunction) => {
   const dispatch = useDispatch();
@@ -71,7 +71,7 @@ const ToDoForm = (saveFunction) => {
 
   return (
   
-    <>
+    <div className={styles.questWrapper}>
       <form className={styles.form}  onSubmit={handleSubmit} id={formId.current}>
         <div className={styles.header__wrapper}>
           <div className={styles.level__wrapper}>
@@ -139,7 +139,6 @@ const ToDoForm = (saveFunction) => {
               <LocalizationProvider dateAdapter={AdapterDayjs}>
               <Stack spacing={3}>
               <DateTimePicker
-                label="Date&Time picker"
                 name="date"
                 value={value}
                 onChange={(newValue) => {
@@ -153,45 +152,54 @@ const ToDoForm = (saveFunction) => {
           </div>
         </div>
         
-
-
-          
-        
-      
-
-        
         <div className={styles.bottom__wrapper}>
-          <select
-            className="categoryPicker"
-            name="category"
-            value={formValues.category}
-            onChange={handleInputValueChange}
-            form={formId.current}
-          >
-            <option value="Stuff">Stuff</option>
-            <option value="Family">Family</option>
-            <option value="Health">Health</option>
-            <option value="Learning">Learning</option>
-            <option value="Leisure">Leisure</option>
-            <option value="Work">Work</option>
-          </select>
+          <div className={styles.category__wrapper}>
+            <div>
+              <select
+                name="category"
+                value={formValues.category}
+                onChange={handleInputValueChange}
+                form={formId.current}
+                className={
+                  formValues.category === "Stuff"
+                    ? `${styles.category__select} ${styles.stuff}`
+                    : formValues.category === "Work"
+                    ? `${styles.category__select} ${styles.work}`
+                    : formValues.category === "Family"
+                    ? `${styles.category__select} ${styles.family}`
+                    : formValues.category === "Health"
+                    ? `${styles.category__select} ${styles.health}`
+                    : formValues.category === "Learning"
+                    ? `${styles.category__select} ${styles.learning}`
+                    : formValues.category === "Leisure"
+                    ? `${styles.category__select} ${styles.leisure}`
+                    : styles.category__select
+                }
+                >
+                <option value="Stuff">Stuff</option>
+                <option value="Family">Family</option>
+                <option value="Health">Health</option>
+                <option value="Learning">Learning</option>
+                <option value="Leisure">Leisure</option>
+                <option value="Work">Work</option>
+              </select>
+            </div>
+          </div>
 
-          <button type="submit" className={styles.submit__button}>
-            START
-          </button>
-
-          <button
-            type="button"
-            className={styles.destroy}
-            onClick={() => dispatch(toDoReducer.actions.closeForm())}
-            /*onClick={onDelete}*/
-          >
-            <ClearButton />
-          </button>
+          <div className={styles.button__wrapper}>
+            <button
+              className={styles.button__cancel}
+              onClick={() => dispatch(toDoReducer.actions.closeForm())}
+              /*onClick={onDelete}*/>
+              <ClearButton />
+            </button>
+            <button className={styles.button__create} type="submit">
+              CREATE
+            </button>
+          </div>
         </div>
-        
       </form>
-    </>
+    </div>
 
   );
 };
