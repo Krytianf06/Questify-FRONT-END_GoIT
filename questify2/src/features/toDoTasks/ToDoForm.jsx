@@ -1,9 +1,13 @@
 import React from "react";
 import { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toDoReducer } from "./ToDoSlice";
 import { nanoid } from "nanoid";
-import styles from "./ToDoTask.module.css";
+import styles from "./ToDoForm.module.css";
+import ellipseBlue from "../../icons/ellipse-blue.svg";
+import ellipseRed from "../../icons/ellipse-red.svg";
+import ellipseGreen from "../../icons/ellipse-green.svg";
+import starIcon from "../../icons/star.svg";
 
 // import * as React from "react";
 import dayjs, { Dayjs } from "dayjs";
@@ -25,13 +29,14 @@ const ToDoForm = (saveFunction) => {
 
   const [formValues, setFormValues] = useState({
     title: "",
-    difficulty: "Easy",
+    difficulty: "Normal",
     category: "Stuff",
     type: "",
     date: "",
     time: "",
   });
 
+  
   const [value, setValue] = React.useState(dayjs());
 
   const handleSubmit = (event) => {
@@ -59,18 +64,46 @@ const ToDoForm = (saveFunction) => {
     }));
   };
 
+    
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
   return (
-    <ul>
-      <li className={styles.todo__form}>
-        <form onSubmit={handleSubmit} id={formId.current}>
-          <div className="">
-            <div className={styles.first__section}>
+  
+    <>
+      <form className={styles.form}  onSubmit={handleSubmit} id={formId.current}>
+        <div className={styles.header__wrapper}>
+          <div className={styles.level__wrapper}>
+            <div>
+              <button 
+                className={styles.level__button} 
+                type="button">
+                  {formValues.difficulty === "Hard" ? (
+                    <img
+                    className={styles.ellipse}
+                    src={ellipseRed}
+                    alt="star"
+                    tabIndex="1"></img>
+                  ) : formValues.difficulty === "Normal" ? (
+                    <img
+                    className={styles.ellipse}
+                    src={ellipseGreen}
+                    alt="star"
+                    tabIndex="1"></img>
+                  ) : formValues.difficulty === "Easy" ? (
+                    <img
+                    className={styles.ellipse}
+                    src={ellipseBlue}
+                    alt="star"
+                    tabIndex="1"></img>
+                  ) : (
+                    <></>
+                  )}
+              </button>
+              
               <select
-                className={styles.difficulty__bar}
+                className={styles.level__select}
                 name="difficulty"
                 value={formValues.difficulty}
                 onChange={handleInputValueChange}
@@ -80,73 +113,86 @@ const ToDoForm = (saveFunction) => {
                 <option value="Normal">Normal</option>
                 <option value="Hard">Hard</option>
               </select>
-
-              <ToDoStar />
-            </div>
-
-            <div className={styles.input__placeholder}>
-              <p>create new quest</p>
-            </div>
-
-            <div className={styles.second__section}>
-              <input
-                ref={inputRef}
-                id={titleId.current}
-                name="title"
-                value={formValues.title}
-                onChange={handleInputValueChange}
-                className={styles.input__field}
-                required
-              />
-            </div>
-
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <Stack spacing={3}>
-                <DateTimePicker
-                  label="Date&Time picker"
-                  name="date"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </Stack>
-            </LocalizationProvider>
-
-            <div className={styles.third__section}>
-              <select
-                className="categoryPicker"
-                name="category"
-                value={formValues.category}
-                onChange={handleInputValueChange}
-                form={formId.current}
-              >
-                <option value="Stuff">Stuff</option>
-                <option value="Family">Family</option>
-                <option value="Health">Health</option>
-                <option value="Learning">Learning</option>
-                <option value="Leisure">Leisure</option>
-                <option value="Work">Work</option>
-              </select>
-
-              <button type="submit" className={styles.submit__button}>
-                START
-              </button>
-
-              <button
-                type="button"
-                className={styles.destroy}
-                onClick={() => dispatch(toDoReducer.actions.closeForm())}
-                /*onClick={onDelete}*/
-              >
-                <ClearButton />
-              </button>
             </div>
           </div>
-        </form>
-      </li>
-    </ul>
+
+          <img
+              className={styles.star__icon}
+              src={starIcon}
+              alt="star"
+              tabIndex="1"></img>
+        </div>
+
+        <div className={styles.TitleWrapper}>
+          <h2 className={styles.form__title}>create new quest</h2>
+          <input
+            ref={inputRef}
+            id={titleId.current}
+            name="title"
+            value={formValues.title}
+            onChange={handleInputValueChange}
+            className={styles.form__input}
+            required
+          />
+          <div className={styles.date__wrapper}>
+            <div>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <Stack spacing={3}>
+              <DateTimePicker
+                label="Date&Time picker"
+                name="date"
+                value={value}
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+              </Stack>
+              </LocalizationProvider>
+            </div>
+          </div>
+        </div>
+        
+
+
+          
+        
+      
+
+        
+        <div className={styles.bottom__wrapper}>
+          <select
+            className="categoryPicker"
+            name="category"
+            value={formValues.category}
+            onChange={handleInputValueChange}
+            form={formId.current}
+          >
+            <option value="Stuff">Stuff</option>
+            <option value="Family">Family</option>
+            <option value="Health">Health</option>
+            <option value="Learning">Learning</option>
+            <option value="Leisure">Leisure</option>
+            <option value="Work">Work</option>
+          </select>
+
+          <button type="submit" className={styles.submit__button}>
+            START
+          </button>
+
+          <button
+            type="button"
+            className={styles.destroy}
+            onClick={() => dispatch(toDoReducer.actions.closeForm())}
+            /*onClick={onDelete}*/
+          >
+            <ClearButton />
+          </button>
+        </div>
+        
+      </form>
+    </>
+
   );
 };
 
