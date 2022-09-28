@@ -8,9 +8,7 @@ import ellipseBlue from "../../icons/ellipse-blue.svg";
 import ellipseRed from "../../icons/ellipse-red.svg";
 import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-// import * as React from "react";
 import dayjs, { Dayjs } from "dayjs";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -19,7 +17,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 import ClearButton from "../../images/toDoTask/ClearButton";
-//import ToDoStar from "../../images/toDoTask/ToDoStar";
 
 const ToDoForm = (saveFunction) => {
   const dispatch = useDispatch();
@@ -64,39 +61,7 @@ const ToDoForm = (saveFunction) => {
     }));
   };
 
-  //mui styles
-
-  // const theme = createTheme({
-  //   components: {
-  //     MuiOutlinedInput: {
-  //       input: {
-  //         border: '4px solid green'
-  //         // .. other styling that you want
-  //       }
-  //     }
-  //   }
-  // })
-
-  const theme = createTheme({
-    overrides: {
-      MuiInputBase: {
-        input: {
-          color: "red",
-        },
-      },
-      MuiFormLabel: {
-        root: {
-          color: "red",
-        },
-      },
-      MuiOutlinedInput: {
-        notchedOutline: {
-          borderColor: "red",
-        },
-      },
-    },
-  });
-
+ 
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -163,7 +128,7 @@ const ToDoForm = (saveFunction) => {
             <div>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Stack spacing={3}>
-                  <ThemeProvider theme={theme}>
+              
                     <DateTimePicker
                       name="date"
                       value={value}
@@ -180,7 +145,7 @@ const ToDoForm = (saveFunction) => {
                         />
                       )}
                     />
-                  </ThemeProvider>
+                  
                 </Stack>
               </LocalizationProvider>
             </div>

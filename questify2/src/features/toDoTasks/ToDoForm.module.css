@@ -1,8 +1,3 @@
-.MuiInputLabel-outlined {
-  background-color: #db0837 !important;
-  color: #db0837 !important;
-}
-
 .questsWrapper {
   margin: 15px;
 }
@@ -156,9 +151,31 @@
   cursor: pointer;
 }
 
+.button__trash {
+  background-color: #fff;
+  border: 0px;
+  border-right: #b9c3c8 1px solid;
+  margin-bottom: 21px;
+}
+
+.button__trash:hover {
+  cursor: pointer;
+}
+
+.button__done {
+  background-color: #fff;
+  border: 0px;
+  margin-bottom: 21px;
+}
+
+.button__done:hover {
+  cursor: pointer;
+}
+
 .bottom__wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* -------------------DIFFICULTY SELECT START-------------------- */
@@ -283,7 +300,7 @@
 }
 
 .ellipse {
-  margin-right: px;
+  margin-right: 3px;
 }
 
 /* -------------------DIFFICULTY SELECT END-------------------- */

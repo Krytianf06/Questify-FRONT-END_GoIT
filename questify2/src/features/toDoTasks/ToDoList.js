@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import ToDoTask from './ToDoTask'
 import ToDoEditedTask from "./ToDoEditedTask";
 import ToDoCompleted from "./ToDoCompleted";
+import styles from "./ToDoList.module.css";
 
 const TodoList = () => {
   const cards = useSelector((state) => state.toDos.cards);
@@ -39,7 +40,7 @@ const TodoList = () => {
     );
   });
 
-  return <ul className="todo-list">{renderedListItems}</ul>;
+  return <ul className={styles.CardList}>{renderedListItems}</ul>;
 };
 
 export default TodoList;

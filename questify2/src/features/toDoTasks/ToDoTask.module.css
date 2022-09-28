@@ -1,289 +1,155 @@
-.todo__form {
-    width: 290px;
+.CardItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 205px;
+  height: 199px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 15px;
+  padding: 21px;
+  background: #fff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+}
+
+.CardItem:hover {
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.HeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.level__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.level__button {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  width: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ellipse {
+  margin-right: 10px;
+}
+
+.star__icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.level__select {
+  display: flex;
+  align-items: baseline;
+  padding-left: 5px;
+  margin-right: 80px;
+  font-family: "HelveticaNeueCyr-Light";
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  color: #b9c3c8;
+  border: 0px;
+}
+
+.form__title {
+  font-family: "HelveticaNeueCyr-Bold";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 12px;
+  text-align: center;
+  color: #282828;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.date__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "HelveticaNeueCyr-Light";
+  font-weight: 400;
+  line-height: 14px;
+  text-align: center;
+  color: #B9C3C8;
+}
+
+
+.category__wrapper {
+  display: inherit;
+}
+
+.category__select {
+  font-family: "HelveticaNeueCyr-Light";
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 11px;
+  letter-spacing: 0.02em;
+  color: #282828;
+  background-color: #d3f6ce;
+  border-radius: 0px 15px 15px 0px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-left: -22px;
+  margin-bottom: 21px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 21px;
+  padding-right: 7px;
+  border: 0px;
+  outline: none;
+  width: 88px;
+}
+
+.work {
+  background: #d3f6ce;
+}
+
+.family {
+  background: #ffe6d3;
+}
+
+.health {
+  background: #cdf7ff;
+}
+
+.learning {
+  background: #fff6c0;
+}
+
+.leisure {
+  background: #f8d2ff;
+}
+
+.stuff {
+  background: #b9c3c8;
+}
+
+@media screen and (max-width: 530px) {
+
+  .CardItem {
+    min-width: 260px;
+    max-width: 290px;
     height: 260px;
-    list-style: none;
-    background: #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-.todo__item {
-    width: 290px;
-    height: 260px;
-    list-style: none;
-    background: #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-}
-
-.todo__item:hover {
-    outline: 0px solid transparent;
-    border-bottom: 1px solid #00D7FF;
-}
-
-.first__section {
-    margin-top: 19px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.input__placeholder {
-    font-family: 'HelveticaNeueCyr';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 12px;
-
-    text-align: center;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-
-    color: #B9C3C8;
-    margin-top: 20px;
-}
-
-.second__section {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.input__field,
-.input__field:focus {
-    border: none;
-    border-bottom: 1px solid #00D7FF;
-    outline: none;
-    font-family: 'HelveticaNeueCyr';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 16px;
-}
-
-.task__title {
-    font-family: 'HelveticaNeueCyr';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 16px;
-    text-align: center;
-    color: #282828;
-}
-
-.task__date {
-    font-family: 'HelveticaNeueCyr';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #B9C3C8;
-
-}
-
-.third__section {
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.submit__button {
-    font-family: 'HelveticaNeueCyr';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-
-    text-align: right;
-    letter-spacing: 0.02em;
-
-    color: #00D7FF;
-    border: none;
-    background-color: #FFFFFF;
-}
-
-.submit__button:hover,
-.destroy:hover {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-.destroy {
-    border: none;
-    background-color: #FFFFFF;
-    text-align: center;
-    text-decoration: none;
-}
-
-.todo__completed {
-    width: 290px;
-    height: 260px;
-    list-style: none;
-    background: #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-    border-radius: 10px;
-    background-image: url(../../images/toDoTask/award.png);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-
-@media screen and (min-width: 530px) {
-    .todo__form {
-        width: 205px;
-        height: 199px;
-        list-style: none;
-        background: #FFFFFF;
-        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-        border-radius: 10px;
-    }
-
-    .todo__item {
-        width: 205px;
-        height: 199px;
-        list-style: none;
-        background: #FFFFFF;
-        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-        border-radius: 10px;
-    }
-
-    .todo__item:hover {
-        outline: 0px solid transparent;
-        border-bottom: 1px solid #00D7FF;
-    }
-
-    .input__placeholder {
-        font-family: 'HelveticaNeueCyr';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 12px;
-
-        text-align: center;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-
-        color: #B9C3C8;
-    }
-
-    .input__field,
-    .input__field:focus {
-        border: none;
-        border-bottom: 1px solid #00D7FF;
-        outline: none;
-    }
-
-    .submit__button {
-        font-family: 'HelveticaNeueCyr';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 14px;
-
-        text-align: right;
-        letter-spacing: 0.02em;
-
-        color: #00D7FF;
-        border: none;
-        background-color: #FFFFFF;
-    }
-
-    .todo__completed {
-        width: 205px;
-        height: 199px;
-        list-style: none;
-        background: #FFFFFF;
-        border-bottom: 1px solid #FFFFFF;
-        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-        border-radius: 10px;
-        background-image: url(../../images/toDoTask/award.png);
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-}
-
-@media screen and (min-width: 1024px) {
-    .todo__form {
-        width: 205px;
-        height: 199px;
-        list-style: none;
-        background: #FFFFFF;
-        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-        border-radius: 10px;
-    }
-
-    .todo__item {
-        width: 205px;
-        height: 199px;
-        list-style: none;
-        background: #FFFFFF;
-        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-        border-radius: 10px;
-    }
-
-    .todo__item:hover {
-        outline: 0px solid transparent;
-        border-bottom: 1px solid #00D7FF;
-    }
-
-    .input__placeholder {
-        font-family: 'HelveticaNeueCyr';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 12px;
-
-        text-align: center;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-
-        color: #B9C3C8;
-    }
-
-    .input__field,
-    .input__field:focus {
-        border: none;
-        border-bottom: 1px solid #00D7FF;
-        outline: none;
-    }
-
-    .submit__button {
-        font-family: 'HelveticaNeueCyr';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 16px;
-
-        text-align: right;
-        letter-spacing: 0.02em;
-
-        color: #00D7FF;
-        border: none;
-        background-color: #FFFFFF;
-    }
-
-    .todo__completed {
-        width: 205px;
-        height: 199px;
-        list-style: none;
-        background: #FFFFFF;
-        border-bottom: 1px solid #FFFFFF;
-        box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-        border-radius: 10px;
-        background-image: url(../../images/toDoTask/award.png);
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
+  }
 }

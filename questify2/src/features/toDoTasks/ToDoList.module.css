@@ -1,0 +1,12 @@
+.CardList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 530px) {
+  .CardList {
+    padding-left: 30px;
+  }
+}
