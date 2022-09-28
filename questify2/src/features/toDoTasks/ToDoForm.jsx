@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toDoReducer } from "./ToDoSlice";
@@ -9,6 +9,7 @@ import ellipseRed from "../../icons/ellipse-red.svg";
 import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
 import calendarIcon from "../../icons/calendar.svg";
+import DatePicker from "react-datepicker";
 
 // import * as React from "react";
 import dayjs, { Dayjs } from "dayjs";
@@ -37,7 +38,6 @@ const ToDoForm = (saveFunction) => {
     time: "",
   });
 
-  
   const [value, setValue] = React.useState(dayjs());
 
   const handleSubmit = (event) => {
@@ -74,63 +74,61 @@ const ToDoForm = (saveFunction) => {
       type="button"
       name="date">
       {value.slice(0, 10) || "Date"}
-      <img className={s.calendar__icon} alt="calendar" src={calendarIcon}></img>
+      <img
+        className={styles.calendar__icon}
+        alt="calendar"
+        src={calendarIcon}></img>
     </button>
   ));
 
-    
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
   return (
-  
     <div className={styles.questsWrapper}>
-      <form className={styles.form}  onSubmit={handleSubmit} id={formId.current}>
+      <form className={styles.form} onSubmit={handleSubmit} id={formId.current}>
         <div className={styles.header__wrapper}>
           <div className={styles.level__wrapper}>
-            <button 
-              className={styles.level__button} 
-              type="button">
-                {formValues.difficulty === "Hard" ? (
-                  <img
+            <button className={styles.level__button} type="button">
+              {formValues.difficulty === "Hard" ? (
+                <img
                   className={styles.ellipse}
                   src={ellipseRed}
                   alt="star"
                   tabIndex="1"></img>
-                ) : formValues.difficulty === "Normal" ? (
-                  <img
+              ) : formValues.difficulty === "Normal" ? (
+                <img
                   className={styles.ellipse}
                   src={ellipseGreen}
                   alt="star"
                   tabIndex="1"></img>
-                ) : formValues.difficulty === "Easy" ? (
-                  <img
+              ) : formValues.difficulty === "Easy" ? (
+                <img
                   className={styles.ellipse}
                   src={ellipseBlue}
                   alt="star"
                   tabIndex="1"></img>
-                ) : (
-                  <></>
-                )}
+              ) : (
+                <></>
+              )}
             </button>
-            
+
             <select
               className={styles.level__select}
               name="difficulty"
               value={formValues.difficulty}
               onChange={handleInputValueChange}
-              form={formId.current}
-            >
+              form={formId.current}>
               <option value="Easy">Easy</option>
               <option value="Normal">Normal</option>
               <option value="Hard">Hard</option>
             </select>
             <img
-            className={styles.star__icon}
-            src={starIcon}
-            alt="star"
-            tabIndex="1"></img>
+              className={styles.star__icon}
+              src={starIcon}
+              alt="star"
+              tabIndex="1"></img>
           </div>
         </div>
 
@@ -147,22 +145,37 @@ const ToDoForm = (saveFunction) => {
           />
           <div className={styles.date__wrapper}>
             <div>
+            <DatePicker
+                  autoComplete="off"
+                  selected={datePick}
+                  onChange={(date) => dispatch(datePickAction(date))}
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={15}
+                  timeCaption="time"
+                  dateFormat="yyyy-MM-dd HH:mm"
+                  minDate={new Date()}
+                  filterTime={filterPassedTime}
+                  customInput={<CustomInput />}
+                />
+
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <Stack spacing={3}>
-              <DateTimePicker
-                name="date"
-                value={value}
-                onChange={(newValue) => {
-                  setValue(newValue);
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-              </Stack>
+                <Stack spacing={3}>
+                  <DateTimePicker
+                    name="date"
+                    value={value}
+                    onChange={(newValue) => {
+                      setValue(newValue);
+                    }}
+                    renderInput={(params) => <TextField {...params} />}
+                    variant="standard"
+                  />
+                </Stack>
               </LocalizationProvider>
             </div>
           </div>
         </div>
-        
+
         <div className={styles.bottom__wrapper}>
           <div className={styles.category__wrapper}>
             <div>
@@ -185,8 +198,7 @@ const ToDoForm = (saveFunction) => {
                     : formValues.category === "Leisure"
                     ? `${styles.category__select} ${styles.leisure}`
                     : styles.category__select
-                }
-                >
+                }>
                 <option value="Stuff">Stuff</option>
                 <option value="Family">Family</option>
                 <option value="Health">Health</option>
@@ -201,7 +213,8 @@ const ToDoForm = (saveFunction) => {
             <button
               className={styles.button__cancel}
               onClick={() => dispatch(toDoReducer.actions.closeForm())}
-              /*onClick={onDelete}*/>
+              /*onClick={onDelete}*/
+            >
               <ClearButton />
             </button>
             <button className={styles.button__create} type="submit">
@@ -211,7 +224,6 @@ const ToDoForm = (saveFunction) => {
         </div>
       </form>
     </div>
-
   );
 };
 
