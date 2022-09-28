@@ -81,6 +81,13 @@ const ToDoForm = (saveFunction) => {
     </button>
   ));
 
+  const filterPassedTime = (time) => {
+    const currentDate = new Date();
+    const selectedDate = new Date(time);
+
+    return currentDate.getTime() < selectedDate.getTime();
+  };
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -147,8 +154,10 @@ const ToDoForm = (saveFunction) => {
             <div>
             <DatePicker
                   autoComplete="off"
-                  selected={datePick}
-                  onChange={(date) => dispatch(datePickAction(date))}
+                  selected={value}
+                  onChange={(newValue) => {
+                    setValue(newValue);
+                  }}
                   showTimeSelect
                   timeFormat="HH:mm"
                   timeIntervals={15}
@@ -159,7 +168,7 @@ const ToDoForm = (saveFunction) => {
                   customInput={<CustomInput />}
                 />
 
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Stack spacing={3}>
                   <DateTimePicker
                     name="date"
@@ -171,7 +180,7 @@ const ToDoForm = (saveFunction) => {
                     variant="standard"
                   />
                 </Stack>
-              </LocalizationProvider>
+              </LocalizationProvider> */}
             </div>
           </div>
         </div>
