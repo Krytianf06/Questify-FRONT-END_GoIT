@@ -1,0 +1,300 @@
+.todo__form {
+  width: 290px;
+  height: 260px;
+  list-style: none;
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.todo__item {
+  width: 290px;
+  height: 260px;
+  list-style: none;
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+}
+
+.todo__item:hover {
+  outline: 0px solid transparent;
+  border-bottom: 1px solid #00d7ff;
+}
+
+.first__section {
+  margin-top: 19px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input__placeholder {
+  font-family: "HelveticaNeueCyr";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 12px;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #b9c3c8;
+  margin-top: 20px;
+}
+
+.second__section {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.input__field,
+.input__field:focus {
+  border: none;
+  border-bottom: 1px solid #00d7ff;
+  outline: none;
+  font-family: "HelveticaNeueCyr";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.task__title {
+  font-family: "HelveticaNeueCyr";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #282828;
+}
+
+.task__date {
+  font-family: "HelveticaNeueCyr";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #b9c3c8;
+}
+
+.third__section {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit__button {
+  font-family: "HelveticaNeueCyr";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+
+  text-align: right;
+  letter-spacing: 0.02em;
+
+  color: #00d7ff;
+  border: none;
+  background-color: #ffffff;
+}
+
+.submit__button:hover,
+.destroy:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.destroy {
+  border: none;
+  background-color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.todo__completed {
+  width: 290px;
+  height: 260px;
+  list-style: none;
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+  background-image: url(../../images/toDoTask/award.png);
+  background-repeat: no-repeat;
+  background-position: contain;
+}
+.info {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+@media screen and (min-width: 530px) {
+  .todo__form {
+    width: 205px;
+    height: 199px;
+    list-style: none;
+    background: #ffffff;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+  }
+
+  .todo__item {
+    width: 205px;
+    height: 199px;
+    list-style: none;
+    background: #ffffff;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+  }
+
+  .todo__item:hover {
+    outline: 0px solid transparent;
+    border-bottom: 1px solid #00d7ff;
+  }
+
+  .input__placeholder {
+    font-family: "HelveticaNeueCyr";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #b9c3c8;
+  }
+
+  .input__field,
+  .input__field:focus {
+    border: none;
+    border-bottom: 1px solid #00d7ff;
+    outline: none;
+  }
+
+  .submit__button {
+    font-family: "HelveticaNeueCyr";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+
+    text-align: right;
+    letter-spacing: 0.02em;
+
+    color: #00d7ff;
+    border: none;
+    background-color: #ffffff;
+  }
+
+  .todo__completed {
+    width: 205px;
+    height: 199px;
+    list-style: none;
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+    background-image: url(../../images/toDoTask/award.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .todo__form {
+    width: 205px;
+    height: 199px;
+    list-style: none;
+    background: #ffffff;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+  }
+
+  .todo__item {
+    width: 205px;
+    height: 199px;
+    list-style: none;
+    background: #ffffff;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+  }
+
+  .todo__item:hover {
+    outline: 0px solid transparent;
+    border-bottom: 1px solid #00d7ff;
+  }
+
+  .input__placeholder {
+    font-family: "HelveticaNeueCyr";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #b9c3c8;
+  }
+
+  .input__field,
+  .input__field:focus {
+    border: none;
+    border-bottom: 1px solid #00d7ff;
+    outline: none;
+  }
+
+  .submit__button {
+    font-family: "HelveticaNeueCyr";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+
+    text-align: right;
+    letter-spacing: 0.02em;
+
+    color: #00d7ff;
+    border: none;
+    background-color: #ffffff;
+  }
+
+  .todo__completed {
+    width: 205px;
+    height: 199px;
+    list-style: none;
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+      3px 4px 4px rgba(21, 57, 90, 0.03);
+    border-radius: 10px;
+    background-image: url(../../images/toDoTask/award.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

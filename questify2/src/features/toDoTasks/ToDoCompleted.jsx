@@ -1,6 +1,6 @@
 import { React } from "react";
 import { useDispatch } from "react-redux";
-import styles from "./ToDoTask.module.css";
+import styles from "./ToDoCompleted.module.css";
 import { toDoReducer } from "./ToDoSlice";
 
 
