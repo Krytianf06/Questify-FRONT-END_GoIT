@@ -1,3 +1,7 @@
+.questsWrapper {
+  margin: 15px;
+}
+
 .form {
   display: flex;
   position: relative;
@@ -32,12 +36,11 @@
 
 .level__wrapper {
   display: flex;
-  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .level {
-  display: flex;
-  align-items: baseline;
   background: url(/src/icons/ellipse-blue.svg) no-repeat 0% 50%;
   margin-left: 4px;
   font-family: "HelveticaNeueCyr-Light";
@@ -123,6 +126,7 @@
   background-color: #fff;
   border: 0px;
   border-right: #b9c3c8 1px solid;
+  margin-bottom: 21px;
 }
 
 .button__cancel:hover {
@@ -134,6 +138,7 @@
   background-color: #fff;
   border: none;
   padding-right: 0px;
+  margin-bottom: 21px;
 }
 
 .button__create:hover {
@@ -150,7 +155,8 @@
 .level__select {
   display: flex;
   align-items: baseline;
-  padding-right: 10px;
+  padding-right: 5px;
+  margin-right: 55px;
   font-family: "HelveticaNeueCyr-Light";
   font-size: 14px;
   line-height: 14px;
@@ -173,10 +179,10 @@
   background-color: #fff;
   outline: none;
   border: none;
-  width: 90px;
+  width: 15px;
   display: flex;
-  justify-content: left;
-  align-items: left;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .level__dropdown {
@@ -295,7 +301,8 @@
   background-color: #d3f6ce;
   border-radius: 0px 15px 15px 0px;
   text-transform: uppercase;
-  margin-left: -27px;
+  margin-left: -22px;
+  margin-bottom: 21px;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 21px;

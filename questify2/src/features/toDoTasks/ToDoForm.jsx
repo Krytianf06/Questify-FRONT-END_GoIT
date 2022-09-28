@@ -8,6 +8,7 @@ import ellipseBlue from "../../icons/ellipse-blue.svg";
 import ellipseRed from "../../icons/ellipse-red.svg";
 import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
+import calendarIcon from "../../icons/calendar.svg";
 
 // import * as React from "react";
 import dayjs, { Dayjs } from "dayjs";
@@ -64,6 +65,19 @@ const ToDoForm = (saveFunction) => {
     }));
   };
 
+  const CustomInput = forwardRef(({ value, onClick }, ref) => (
+    <button
+      className={styles.date__select}
+      onClick={onClick}
+      ref={ref}
+      value={value}
+      type="button"
+      name="date">
+      {value.slice(0, 10) || "Date"}
+      <img className={s.calendar__icon} alt="calendar" src={calendarIcon}></img>
+    </button>
+  ));
+
     
   useEffect(() => {
     inputRef.current.focus();
@@ -71,60 +85,57 @@ const ToDoForm = (saveFunction) => {
 
   return (
   
-    <div className={styles.questWrapper}>
+    <div className={styles.questsWrapper}>
       <form className={styles.form}  onSubmit={handleSubmit} id={formId.current}>
         <div className={styles.header__wrapper}>
           <div className={styles.level__wrapper}>
-            <div>
-              <button 
-                className={styles.level__button} 
-                type="button">
-                  {formValues.difficulty === "Hard" ? (
-                    <img
-                    className={styles.ellipse}
-                    src={ellipseRed}
-                    alt="star"
-                    tabIndex="1"></img>
-                  ) : formValues.difficulty === "Normal" ? (
-                    <img
-                    className={styles.ellipse}
-                    src={ellipseGreen}
-                    alt="star"
-                    tabIndex="1"></img>
-                  ) : formValues.difficulty === "Easy" ? (
-                    <img
-                    className={styles.ellipse}
-                    src={ellipseBlue}
-                    alt="star"
-                    tabIndex="1"></img>
-                  ) : (
-                    <></>
-                  )}
-              </button>
-              
-              <select
-                className={styles.level__select}
-                name="difficulty"
-                value={formValues.difficulty}
-                onChange={handleInputValueChange}
-                form={formId.current}
-              >
-                <option value="Easy">Easy</option>
-                <option value="Normal">Normal</option>
-                <option value="Hard">Hard</option>
-              </select>
-            </div>
+            <button 
+              className={styles.level__button} 
+              type="button">
+                {formValues.difficulty === "Hard" ? (
+                  <img
+                  className={styles.ellipse}
+                  src={ellipseRed}
+                  alt="star"
+                  tabIndex="1"></img>
+                ) : formValues.difficulty === "Normal" ? (
+                  <img
+                  className={styles.ellipse}
+                  src={ellipseGreen}
+                  alt="star"
+                  tabIndex="1"></img>
+                ) : formValues.difficulty === "Easy" ? (
+                  <img
+                  className={styles.ellipse}
+                  src={ellipseBlue}
+                  alt="star"
+                  tabIndex="1"></img>
+                ) : (
+                  <></>
+                )}
+            </button>
+            
+            <select
+              className={styles.level__select}
+              name="difficulty"
+              value={formValues.difficulty}
+              onChange={handleInputValueChange}
+              form={formId.current}
+            >
+              <option value="Easy">Easy</option>
+              <option value="Normal">Normal</option>
+              <option value="Hard">Hard</option>
+            </select>
+            <img
+            className={styles.star__icon}
+            src={starIcon}
+            alt="star"
+            tabIndex="1"></img>
           </div>
-
-          <img
-              className={styles.star__icon}
-              src={starIcon}
-              alt="star"
-              tabIndex="1"></img>
         </div>
 
         <div className={styles.TitleWrapper}>
-          <h2 className={styles.form__title}>create new quest</h2>
+          <h2 className={styles.form__title}>CREATE A NEW QUEST</h2>
           <input
             ref={inputRef}
             id={titleId.current}
