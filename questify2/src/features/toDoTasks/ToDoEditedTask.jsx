@@ -3,13 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toDoReducer } from "./ToDoSlice";
 import { nanoid } from "nanoid";
+
 import styles from "./ToDoForm.module.css";
 import ellipseBlue from "../../icons/ellipse-blue.svg";
 import ellipseRed from "../../icons/ellipse-red.svg";
 import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
 
-// import * as React from "react";
+import { removeToDo, UpdateToDo, CompleteToDo } from "../../api/request";
+
 import dayjs, { Dayjs } from "dayjs";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -21,6 +23,7 @@ import ClearButton from "../../images/toDoTask/ClearButton";
 
 import SaveButton from "../../images/toDoTask/SaveButton";
 import ConfirmButton from "../../images/toDoTask/ConfirmButton";
+import { DeleteTaskModal } from "../../components/deleteQuestModal/DeleteQuestModal";
 
 const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
   const dispatch = useDispatch();
@@ -31,7 +34,7 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
 
   const [formValues, setFormValues] = useState({
     id: id,
-    title:  title,
+    title: title,
     difficulty: difficulty,
     category: category,
     type: "quest",
@@ -41,12 +44,14 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
 
   const [value, setValue] = React.useState(dayjs());
 
+  const UpdateCardInApi = (payload) => dispatch(UpdateToDo(payload));
+  const CompleteCardInApi = (payload) => dispatch(CompleteToDo(payload));
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { title, difficulty, category, type } = formValues;
     const newToDoTask = {
-      id: id,
       title: title,
       difficulty: difficulty,
       category: category,
@@ -55,7 +60,8 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
       time: `${value.$H}:${value.$m}`,
     };
 
-    dispatch(toDoReducer.actions.editToDoCard(newToDoTask));
+    // dispatch(toDoReducer.actions.editToDoCard(newToDoTask));
+    UpdateCardInApi({ ...newToDoTask, cardId: id });
     dispatch(toDoReducer.actions.updateEditedCardId(""));
   };
 
@@ -70,16 +76,22 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
     inputRef.current.focus();
   }, []);
 
-  const onConfirm = (id) => {
-    dispatch(toDoReducer.actions.completeToDoCard(id));
+  const onConfirm = () => {
+    const status = { status: "Complete" };
+    CompleteCardInApi({ ...status, cardId: id });
     dispatch(toDoReducer.actions.updateEditedCardId(""));
-  }
+  };
 
-    const onDelete = (id) => {
-      dispatch(toDoReducer.actions.deleteToDoCard(id));
-    };
+  const onDelete = (payload) => {
+    dispatch(removeToDo(payload));
+    dispatch(toDoReducer.actions.closeModal());
+  };
+  
+  const modalStatus = useSelector((state) => state.toDos.isModalOpen);
+
 
   return (
+
     <div className={styles.questsWrapper}>
       <form className={styles.form} onSubmit={handleSubmit} id={formId.current}>
         <div className={styles.header__wrapper}>
@@ -195,6 +207,7 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
                 <option value="Leisure">Leisure</option>
                 <option value="Work">Work</option>
               </select>
+
             </div>
           </div>
 
@@ -212,89 +225,6 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
         </div>
       </form>
     </div>
-
-
-    // <ul>
-    //   <li className={styles.todo__form}>
-    //     <form onSubmit={handleSubmit} id={formId.current}>
-    //       <div className="">
-    //         <div className={styles.first__section}>
-    //           <select
-    //             className={styles.difficulty__bar}
-    //             name="difficulty"
-    //             value={formValues.difficulty}
-    //             onChange={handleInputValueChange}
-    //             form={formId.current}
-    //           >
-    //             <option value="Easy">Easy</option>
-    //             <option value="Normal">Normal</option>
-    //             <option value="Hard">Hard</option>
-    //           </select>
-
-    //           <ToDoStar />
-    //         </div>
-
-    //         <div className={styles.input__placeholder}>
-    //           <p>edit quest</p>
-    //         </div>
-
-    //         <div className={styles.second__section}>
-    //           <input
-    //             ref={inputRef}
-    //             id={titleId.current}
-    //             name="title"
-    //             value={formValues.title}
-    //             onChange={handleInputValueChange}
-    //             className={styles.input__field}
-    //             required
-    //           />
-    //         </div>
-
-    //         <LocalizationProvider dateAdapter={AdapterDayjs}>
-    //           <Stack spacing={3}>
-    //             <DateTimePicker
-    //               label="Date&Time picker"
-    //               name="date"
-    //               value={value}
-    //               onChange={(newValue) => {
-    //                 setValue(newValue);
-    //               }}
-    //               renderInput={(params) => <TextField {...params} />}
-    //             />
-    //           </Stack>
-    //         </LocalizationProvider>
-
-    //         <div className={styles.third__section}>
-    //           <select
-    //             className="categoryPicker"
-    //             name="category"
-    //             value={formValues.category}
-    //             onChange={handleInputValueChange}
-    //             form={formId.current}
-    //           >
-    //             <option value="Stuff">Stuff</option>
-    //             <option value="Family">Family</option>
-    //             <option value="Health">Health</option>
-    //             <option value="Learning">Learning</option>
-    //             <option value="Leisure">Leisure</option>
-    //             <option value="Work">Work</option>
-    //           </select>
-
-    //           <button type="submit" className={styles.submit__button}>
-    //             <SaveButton />
-    //           </button>
-
-    //           <button className={styles.destroy} onClick={() => onDelete(id)}>
-    //             <ClearButton />
-    //           </button>
-    //           <button className={styles.destroy} onClick={() => onConfirm(id)}>
-    //             <ConfirmButton />
-    //           </button>
-    //         </div>
-    //       </div>
-    //     </form>
-    //   </li>
-    // </ul>
   );
 };
 

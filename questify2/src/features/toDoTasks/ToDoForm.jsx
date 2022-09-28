@@ -3,11 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toDoReducer } from "./ToDoSlice";
 import { nanoid } from "nanoid";
+
 import styles from "./ToDoForm.module.css";
 import ellipseBlue from "../../icons/ellipse-blue.svg";
 import ellipseRed from "../../icons/ellipse-red.svg";
 import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
+
+import { saveToDo } from "../../api/request";
 
 import dayjs, { Dayjs } from "dayjs";
 import Stack from "@mui/material/Stack";
@@ -18,7 +21,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 import ClearButton from "../../images/toDoTask/ClearButton";
 
-const ToDoForm = (saveFunction) => {
+const ToDoForm = () => {
   const dispatch = useDispatch();
 
   const inputRef = useRef();
@@ -36,12 +39,14 @@ const ToDoForm = (saveFunction) => {
 
   const [value, setValue] = React.useState(dayjs());
 
+  const saveCardInApi = (payload) => dispatch(saveToDo(payload));
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { title, difficulty, category, type } = formValues;
     const newToDoTask = {
-      id: nanoid(),
+      // id: nanoid(),
       title: title,
       difficulty: difficulty,
       category: category,
@@ -50,8 +55,10 @@ const ToDoForm = (saveFunction) => {
       time: `${value.$H}:${value.$m}`,
     };
 
-    dispatch(toDoReducer.actions.addToDoCard(newToDoTask));
+    //dispatch(toDoReducer.actions.addToDoCard(newToDoTask));
     dispatch(toDoReducer.actions.closeForm());
+
+    saveCardInApi(newToDoTask);
   };
 
   const handleInputValueChange = (event) => {
@@ -67,6 +74,7 @@ const ToDoForm = (saveFunction) => {
   }, []);
 
   return (
+
     <div className={styles.questsWrapper}>
       <form className={styles.form} onSubmit={handleSubmit} id={formId.current}>
         <div className={styles.header__wrapper}>
@@ -148,6 +156,8 @@ const ToDoForm = (saveFunction) => {
                   
                 </Stack>
               </LocalizationProvider>
+
+
             </div>
           </div>
         </div>
@@ -184,7 +194,6 @@ const ToDoForm = (saveFunction) => {
               </select>
             </div>
           </div>
-
           <div className={styles.button__wrapper}>
             <button
               className={styles.button__cancel}
