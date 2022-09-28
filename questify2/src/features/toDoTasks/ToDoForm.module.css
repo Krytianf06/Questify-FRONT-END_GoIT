@@ -1,3 +1,8 @@
+.MuiInputLabel-outlined {
+  background-color: #db0837 !important;
+  color: #db0837 !important;
+}
+
 .questsWrapper {
   margin: 15px;
 }
@@ -17,6 +22,12 @@
   box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
     3px 4px 4px rgba(21, 57, 90, 0.03);
   border-radius: 10px;
+}
+
+.form:hover {
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
 
 .star__icon {
@@ -68,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 12px;
+  padding-bottom: 10px;
 }
 
 .date__select {
@@ -97,7 +108,7 @@
   line-height: 12px;
   text-align: center;
   color: #b9c3c8;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   letter-spacing: 1px;
 }
 

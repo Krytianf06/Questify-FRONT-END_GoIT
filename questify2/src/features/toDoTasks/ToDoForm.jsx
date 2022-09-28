@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toDoReducer } from "./ToDoSlice";
@@ -8,8 +8,7 @@ import ellipseBlue from "../../icons/ellipse-blue.svg";
 import ellipseRed from "../../icons/ellipse-red.svg";
 import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
-import calendarIcon from "../../icons/calendar.svg";
-import DatePicker from "react-datepicker";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 // import * as React from "react";
 import dayjs, { Dayjs } from "dayjs";
@@ -65,28 +64,38 @@ const ToDoForm = (saveFunction) => {
     }));
   };
 
-  const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button
-      className={styles.date__select}
-      onClick={onClick}
-      ref={ref}
-      value={value}
-      type="button"
-      name="date">
-      {value.slice(0, 10) || "Date"}
-      <img
-        className={styles.calendar__icon}
-        alt="calendar"
-        src={calendarIcon}></img>
-    </button>
-  ));
+  //mui styles
 
-  const filterPassedTime = (time) => {
-    const currentDate = new Date();
-    const selectedDate = new Date(time);
+  // const theme = createTheme({
+  //   components: {
+  //     MuiOutlinedInput: {
+  //       input: {
+  //         border: '4px solid green'
+  //         // .. other styling that you want
+  //       }
+  //     }
+  //   }
+  // })
 
-    return currentDate.getTime() < selectedDate.getTime();
-  };
+  const theme = createTheme({
+    overrides: {
+      MuiInputBase: {
+        input: {
+          color: "red",
+        },
+      },
+      MuiFormLabel: {
+        root: {
+          color: "red",
+        },
+      },
+      MuiOutlinedInput: {
+        notchedOutline: {
+          borderColor: "red",
+        },
+      },
+    },
+  });
 
   useEffect(() => {
     inputRef.current.focus();
@@ -152,35 +161,28 @@ const ToDoForm = (saveFunction) => {
           />
           <div className={styles.date__wrapper}>
             <div>
-            <DatePicker
-                  autoComplete="off"
-                  selected={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={15}
-                  timeCaption="time"
-                  dateFormat="yyyy-MM-dd HH:mm"
-                  minDate={new Date()}
-                  filterTime={filterPassedTime}
-                  customInput={<CustomInput />}
-                />
-
-              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Stack spacing={3}>
-                  <DateTimePicker
-                    name="date"
-                    value={value}
-                    onChange={(newValue) => {
-                      setValue(newValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                    variant="standard"
-                  />
+                  <ThemeProvider theme={theme}>
+                    <DateTimePicker
+                      name="date"
+                      value={value}
+                      onChange={(newValue) => {
+                        setValue(newValue);
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          id="standard-basic"
+                          variant="standard"
+                          label="Date "
+                          margin="normal"
+                          {...params}
+                        />
+                      )}
+                    />
+                  </ThemeProvider>
                 </Stack>
-              </LocalizationProvider> */}
+              </LocalizationProvider>
             </div>
           </div>
         </div>
