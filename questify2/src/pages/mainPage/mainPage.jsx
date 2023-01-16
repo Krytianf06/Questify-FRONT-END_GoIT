@@ -14,11 +14,12 @@ const MainPage = () => {
   const setFormActive = () => {
     dispatch(toDoReducer.actions.openForm());
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getCardsFromApi = () => dispatch(fetchToDos());
 
   useEffect(()=>{
     getCardsFromApi();
-  },[]);
+  },[getCardsFromApi]);
   
 return (
   <div className={styles.homepage}>

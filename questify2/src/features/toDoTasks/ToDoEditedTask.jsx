@@ -10,7 +10,7 @@ import ellipseGreen from "../../icons/ellipse-green.svg";
 import starIcon from "../../icons/star.svg";
 import { removeToDo, UpdateToDo, CompleteToDo } from "../../api/request";
 
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -48,7 +48,7 @@ const ToDoEditedTask = ({ id, difficulty, title, date, time, category }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { title, difficulty, category, type } = formValues;
+    const { title, difficulty, category} = formValues;
     const newToDoTask = {
       title: title,
       difficulty: difficulty,
